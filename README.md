@@ -6,7 +6,7 @@
     
     
 #
-### Baekjoon OJ  
+### Baekjoon OJ
 #
 문제: https://www.acmicpc.net/problem/[문제번호]
 
