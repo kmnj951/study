@@ -37,18 +37,27 @@ int main(void) {
 		else if( Y!=0 && !(rain[Y] >= rain[X]) ) 
 			ans = F;	
 		else {
-			int rain_x = rain[X];
+			int rain_x = rain[X];			
+			int b=0, e=n+1;
 			if( Y == 0 ) {
-				int j;
-				for(j=X; j>0 && year[j]>=query[0]; --j)
-					;
-				Y = j;
+				while(b<e) {
+					int t = (b+e+1)/2;		
+					if( year[t] <= query[0] )
+						b = t;
+					else
+						e = t-1;
+				}
+				Y = b;	// equal or less index (but not equal) 
 			}
 			else if( X == 0 ) {
-				int j;
-				for(j=Y; j<n-1 && year[j]<=query[1]; ++j)
-					;
-				X = j;
+				while(b<e) {
+					int t = (b+e)/2;
+					if( year[t] < query[1] )
+						b = t+1;
+					else
+						e = t;
+				}
+				X = e;	// equal or greater index (but not equal)
 				rain_x = rain[Y];
 			}
 			
