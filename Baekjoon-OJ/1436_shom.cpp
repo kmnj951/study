@@ -82,7 +82,6 @@ void Shom666::set(int N) {
 					prefix[prebound[0]] = 7;	
 				}
 			}
-			
 		}
 	}
 }
@@ -90,7 +89,7 @@ void Shom666::set(int N) {
 int main(void) {
 	int N;
 	scanf("%d", &N);	
-	
+		
 	Shom666 s(6);
 	s.set(N);
 	s.print();
