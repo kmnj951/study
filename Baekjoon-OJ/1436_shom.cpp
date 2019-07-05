@@ -19,8 +19,8 @@ public:
 
 Shom666::Shom666(int size) 
 	: prefix(new int[size]), prebound{0,0}, postfix(new int[size]), postdigit(0) {
-		init(prefix,size);
-		init(postfix,size);
+	init(prefix,size);
+	init(postfix,size);
 }
 
 Shom666::~Shom666()  {
