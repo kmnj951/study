@@ -39,11 +39,10 @@ vector<pair<int,int> > find_boundary(int map[][100], int N, const pair<int,int> 
 }
 
 int find_shortest(int map[][100], int N, const vector<vector<pair<int,int> > > &bounds) {
-	int dist[100][100] = {{0}};
 	queue<pair<int, int> > find_land;
 	int shortest = max;
-	for (int i = 0; i < bounds.size(); ++i)
-		for (int j = 0; j < bounds[i].size(); ++j)
+	for (unsigned i = 0; i < bounds.size(); ++i)
+		for (unsigned j = 0; j < bounds[i].size(); ++j)
 			find_land.push(bounds[i][j]);
 	
 	// map
@@ -55,7 +54,6 @@ int find_shortest(int map[][100], int N, const vector<vector<pair<int,int> > > &
 		find_land.pop();
 		if (map[x][y] < 0)
 			map[x][y] = -map[x][y];
-		//cout << x << " " << y <<  ": " << distance[x][y] << endl;
 		
 		for (int i = 0; i < 4; ++i) {
 			int direct[4] = {-1, 1, 0, 0};
@@ -65,12 +63,10 @@ int find_shortest(int map[][100], int N, const vector<vector<pair<int,int> > > &
 				if (map[next_x][next_y] == 0) {
 					map[next_x][next_y] = -map[x][y];	// just branch
 					distance[next_x][next_y] = distance[x][y] + 1;
-					//cout << next_x << " " << next_y <<  " " << distance[next_x][next_y] << endl;
 					find_land.push(make_pair(next_x, next_y));
 				}
 				else if (map[next_x][next_y] > 0 && map[next_x][next_y] != map[x][y]) {
 					shortest = distance[next_x][next_y] + distance[x][y];
-					//cout << next_x << " " << next_y << " " << x << " " << y << endl;
 					return shortest;
 				}
 			}
