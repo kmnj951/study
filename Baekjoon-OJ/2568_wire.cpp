@@ -23,6 +23,7 @@ int main() {
 	
 	int count = N;
 	for (int i = 0; i <= 500000 && count > 0; ++i) {
+		// can use vector.push_back instead of list.insert
 		if (B_line[i] > 0) {
 			std::pair<int, int> cur;
 			std::list<std::pair<int, int> >::iterator it;
